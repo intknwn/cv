@@ -29947,7 +29947,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const AUTHORIZATION = `Basic DJHskh28934jjHSFSUAoy4`;
-const URL = `https://11.ecmascript.pages.academy/big-trip`;
+const URL = `https://14.ecmascript.pages.academy/big-trip`;
 
 const STORE_PREFIX = `bigtrip-localstorage`;
 const STORE_VER = `v1`;
@@ -29975,7 +29975,11 @@ Object(_utils_render_js__WEBPACK_IMPORTED_MODULE_7__["render"])(tripEventsElemen
 Object(_utils_render_js__WEBPACK_IMPORTED_MODULE_7__["render"])(tripEventsElement, tripDaysListComponent, _utils_render_js__WEBPACK_IMPORTED_MODULE_7__["RenderPosition"].AFTERBEGIN);
 Object(_utils_render_js__WEBPACK_IMPORTED_MODULE_7__["render"])(tripEventsElement, statsComponent, _utils_render_js__WEBPACK_IMPORTED_MODULE_7__["RenderPosition"].AFTERBEGIN);
 
-const tripController = new _controllers_trip__WEBPACK_IMPORTED_MODULE_5__["default"](tripDaysListComponent, eventsModel, apiWithProvider);
+const tripController = new _controllers_trip__WEBPACK_IMPORTED_MODULE_5__["default"](
+  tripDaysListComponent,
+  eventsModel,
+  apiWithProvider
+);
 tripController.setMenuComponent(menuComponent);
 
 statsComponent.hide();
@@ -29989,7 +29993,9 @@ menuComponent.setOnChange((menuItem) => {
       menuComponent.setActiveItem(_components_menu_js__WEBPACK_IMPORTED_MODULE_1__["MenuItem"].TABLE);
       statsComponent.hide();
       tripController.show();
-      elements.forEach((element) => element.classList.remove(`page-body__container--stats`));
+      elements.forEach((element) =>
+        element.classList.remove(`page-body__container--stats`)
+      );
       break;
     case _components_menu_js__WEBPACK_IMPORTED_MODULE_1__["MenuItem"].STATS:
       menuComponent.setActiveItem(_components_menu_js__WEBPACK_IMPORTED_MODULE_1__["MenuItem"].STATS);
@@ -29997,12 +30003,15 @@ menuComponent.setOnChange((menuItem) => {
       tripController.hide();
       statsComponent.renderCharts();
       statsComponent.show();
-      elements.forEach((element) => element.classList.add(`page-body__container--stats`));
+      elements.forEach((element) =>
+        element.classList.add(`page-body__container--stats`)
+      );
       break;
   }
 });
 
-apiWithProvider.getDestinations()
+apiWithProvider
+  .getDestinations()
   .then((destinations) => {
     eventsModel.setDestinations(destinations);
   })
